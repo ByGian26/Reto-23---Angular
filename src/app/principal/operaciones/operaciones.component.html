@@ -1,0 +1,39 @@
+<h1 class="text-light text-center fw-bold m-2" >OPERACIONES</h1>
+<section class="container-sm">
+  <section class="m-2 p-2">
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Ingrese el primer valor</mat-label>
+        <input matInput placeholder="1">
+      </mat-form-field>
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Ingrese el segundo valor</mat-label>
+          <input matInput placeholder="2">
+        </mat-form-field>
+        <mat-divider></mat-divider>
+        <section class="col-2" [(ngModel)] = "operacion">
+          <mat-slide-toggle class="m-2">Sumar</mat-slide-toggle>
+          <mat-slide-toggle class="m-2">Restar</mat-slide-toggle>
+          <mat-slide-toggle class="m-2">Multiplicar</mat-slide-toggle>
+          <mat-slide-toggle class="m-2">Dividir</mat-slide-toggle>
+        </section>
+
+    <p>
+      <select [(ngModel)] = "operacion">
+        <option value="ninguna">Seleciona una operacion</option>
+        <option value="suma">Suma</option>
+        <option value="resta">Resta</option>
+        <option value="multi">Multiplicar</option>
+        <option value="div">Dividir</option>
+      </select>
+    </p>
+      <p>Resultado</p>
+      <span [ngSwitch] = "operacion">
+        <span *ngSwitchCase="'suma'">{{num1 + num2}}</span>
+        <span *ngSwitchCase="'resta'">{{num1 - num2}}</span>
+        <span *ngSwitchCase="'multi'">{{num1 * num2}}</span>
+        <span *ngSwitchCase="'div'">{{num1 / num2}}</span>
+        <span *ngSwitchDefault> No selecciono ninguna valor</span>
+      </span>
+
